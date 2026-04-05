@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StickyNote.API.Data;
 
@@ -11,9 +12,11 @@ using StickyNote.API.Data;
 namespace StickyNote.API.Migrations
 {
     [DbContext(typeof(StickyNoteDbContext))]
-    partial class StickyNoteDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260405164025_Seggregate-Entity-And-Configurations")]
+    partial class SeggregateEntityAndConfigurations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

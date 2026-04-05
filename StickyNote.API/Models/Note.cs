@@ -1,9 +1,12 @@
-﻿namespace StickyNote.API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace StickyNote.API.Models
 {
     public class Note : BaseIDWithAudit
     {
-        public string Title { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-        public int ColourId { get; set; }
+        public string Title { get; set; } = null!;
+        public string Description { get; set; } = null!;
+        public int? ColourId { get; set; }
+        public Colour? Colour { get; set; }
     }
 }
