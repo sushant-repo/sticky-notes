@@ -13,6 +13,7 @@ builder.Services.AddDbContext<StickyNoteDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("StickyNoteDbConnectionString")));
 
 builder.Services.AddScoped<IColourService, ColourService>();
+builder.Services.AddScoped<INoteService, NoteService>();
 
 var app = builder.Build();
 

@@ -1,9 +1,51 @@
 @StickyNote.API_HostAddress = http://localhost:5232
 
+// Get all available colours
 GET {{StickyNote.API_HostAddress}}/api/colours
 Accept: application/json
-
-
 ###
+
+
+// Get a specific colour by name
 GET {{StickyNote.API_HostAddress}}/api/colours/red
 Accept: application/json
+###
+
+
+// Get all notes
+GET {{StickyNote.API_HostAddress}}/api/notes
+Accept: application/json
+###
+
+
+// Create a new note
+POST {{StickyNote.API_HostAddress}}/api/notes
+Content-Type: application/json
+{
+    "title": "My first note",
+    "description": "This is the content of my first note.",
+    "colour": "yellow"
+}
+###
+
+
+// Get a specific note by ID
+GET {{StickyNote.API_HostAddress}}/api/notes/1
+Accept: application/json
+###
+
+
+// Update an existing note
+PUT {{StickyNote.API_HostAddress}}/api/notes/1
+Content-Type: application/json
+{
+    "title": "My updated note",
+    "description": "This is the updated content of my note.",
+    "colour": "blue"
+}
+###
+
+
+// Delete a note by ID
+DELETE {{StickyNote.API_HostAddress}}/api/notes/1
+
