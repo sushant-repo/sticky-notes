@@ -8,11 +8,11 @@ namespace StickyNote.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ColourController : ControllerBase
+    public class ColoursController : ControllerBase
     {
         private readonly IColourService colourService;
 
-        public ColourController(IColourService colourService)
+        public ColoursController(IColourService colourService)
         {
             this.colourService = colourService;
         }

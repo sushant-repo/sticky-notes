@@ -1,4 +1,9 @@
 @StickyNote.API_HostAddress = http://localhost:5232
 
+GET {{StickyNote.API_HostAddress}}/api/colours
+Accept: application/json
+
 
 ###
+GET {{StickyNote.API_HostAddress}}/api/colours/red
+Accept: application/json
