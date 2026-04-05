@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using StickyNote.API.Services;
 using StickyNote.API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<StickyNoteDbContext>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("StickyNoteDbConnectionString")));
+
+builder.Services.AddScoped<IColourService, ColourService>();
 
 var app = builder.Build();
 
@@ -24,5 +27,11 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+using(var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<StickyNoteDbContext>();
+    DbSeeder.Seed(dbContext);
+}
 
 app.Run();
