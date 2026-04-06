@@ -5,8 +5,11 @@ name: Build and deploy ASP.Net Core app to Azure Web App - sticky-notes
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+    paths:
+      - 'StickyNote.API/**'
+      - '*.sln'
+      - '*.csproj'
   workflow_dispatch:
 
 jobs:
