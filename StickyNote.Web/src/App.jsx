@@ -22,12 +22,10 @@ function App() {
   }
 
   function deleteNote(id){
-    console.log(id)
     setNotes(prev => prev.filter(note => note.Id !== id)); 
   }
 
   function updateNote(note){
-    console.log(note);
     var updatedNote = notes.find(x => x.Id === note.Id);
     updatedNote = {...updatedNote, ...note};
     setNotes(prev => prev.map(n => n.Id === note.Id ? {...n, ...note} : n));
