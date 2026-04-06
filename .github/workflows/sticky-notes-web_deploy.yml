@@ -19,12 +19,14 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        working-directory: ./StickyNote.Web
 
       - name: Run tests
         run: npm test -- -watchAll=false
 
       - name: Build app
         run: npm run build
+        working-directory: ./StickyNote.Web
 
       - name: Deploy
         uses: Azure/static-web-apps-deploy@v1
